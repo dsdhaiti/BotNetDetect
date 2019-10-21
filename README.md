@@ -29,6 +29,9 @@ Add additional notes about how to deploy this on a live system
 * [pronbot](#) - sentimate analysis 
 * [botornotAPI](https://botometer.iuni.iu.edu/#!/) - sentimate analysis 
 
+## For more information
+* [BotNetDect](https://dsdevelops.github.io/BotNetDetect/) - Bot Net Detector site 
+
 ## Authors
 
 * **David D'Haiti** - *Initial work* - [PurpleBooth](https://github.com/PurpleBooth)
