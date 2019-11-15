@@ -21,7 +21,6 @@ if __name__ == '__main__':
 
     # get handle from the user
     print("please enter you starting users handle")
-
     print("Is the handle user:",user +"\n")
 
     #initilize  and set the starting users
