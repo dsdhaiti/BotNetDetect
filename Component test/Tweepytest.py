@@ -12,6 +12,7 @@ auth.set_access_token(access_token, access_token_secret)
 
 api = tweepy.API(auth)
 user = api.get_user('@clayadavis')
+
 # api.followers
 # public_tweets = api.home_timeline()
 
@@ -19,5 +20,6 @@ user = api.get_user('@clayadavis')
 #     print(tweet.text)
 print(user.screen_name)
 print(user.followers_count)
+
 for friends in user.friends():
     print(friends.followers)
