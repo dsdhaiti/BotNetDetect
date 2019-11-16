@@ -34,18 +34,33 @@ if __name__ == '__main__':
 
     # list followers
     # count = 0
-    # for user in api_tweepy.followers(user):
+    # for tw_user in api_tweepy.followers(user):
     #     print(str(user.screen_name)+ '\n')
     #     count += 1
     # print(count)
 
-    ids = []
-    for page in tweepy.Cursor(api_tweepy.followers_ids, screen_name=user).pages():
-        ids.extend(page)
-        time.sleep(60)
+    tw_user = tweepy.Cursor(api_tweepy.followers,screen_name=user_tw).items
 
-    print
-    len(ids)
+
+    while True:
+        try:
+            user = next(tw_user)
+        except tweepy.TweepError:
+            time.sleep(60 * 15)
+            user = next(tw_user)
+        except StopIteration:
+            break
+        print("@" + user.screen_name)
+
+
+    # count = 0
+    # ids = []
+    # for page in tweepy.Cursor(api_tweepy.followers_ids, screen_name=user).pages():
+    #     ids.extend(page)
+    #     time.sleep(10)
+    #     ++count
+    #     print(count)
+    # len(ids)
 
     # begin the process
     #     check all the followers to see if they are bots
