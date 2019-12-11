@@ -15,14 +15,17 @@ bom = botometer.Botometer(wait_on_ratelimit=True,
                           **twitter_app_auth)
 
 # Check a single account by screen name
-result = bom.check_account('@clayadavis')
+result = bom.check_account('@shallowtay')
 
 # Check a single account by id
-result = bom.check_account(1548959833)
-
+#result = bom.check_account(1548959833)
+if(result['display_scores']['english'] >3.5):
+    print(result['display_scores'])
+else:
+    print('not a bot')
 # Check a sequence of accountsj
 # , '@onurvarol', '@jabawack'
-accounts = ['@clayadavis']
-for screen_name in bom.check_accounts_in(accounts):
-    # Do stuff with `screen_name` and `result`
-    print(result['display_scores'])
+# accounts = ['@clayadavis']
+# for screen_name in bom.check_accounts_in(accounts):
+#     # Do stuff with `screen_name` and `result`
+#     print(result['display_scores'])

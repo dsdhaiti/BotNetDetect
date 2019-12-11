@@ -1,5 +1,5 @@
 import tweepy
-
+import time
 consumer_key = "dYkKG6U7nF9eXcb7PCL1rmUj3"
 consumer_secret = "Vwi57HPdjo4euDVVk9RTXQYydJFdiEwzDSd1JQALPmQweXLyhq"
 
@@ -18,8 +18,14 @@ user = api.get_user('@clayadavis')
 
 # for tweet in public_tweets:
 #     print(tweet.text)
-print(user.screen_name)
-print(user.followers_count)
 
-for friends in user.friends():
-    print(friends.followers)
+def limit_handled(cursor):
+    while True:
+        try:
+            yield cursor.next()
+        except tweepy.RateLimitError:
+            time.sleep(15 * 60)
+
+for follower in limit_handled(tweepy.Cursor(api.followers).items()):
+    if follower.friends_count < 300:
+        print(follower.screen_name)
