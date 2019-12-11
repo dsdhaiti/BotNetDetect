@@ -54,16 +54,16 @@ def networkCreator(username,degree,G):
     # create list of bots
     bots = []
 
-    # loop through following
-    # for x in following:
-    #     #check if bot
-    #     if check_user(x):
-    #
-    #         #append to bots list
-    #         bots.append(x)
+    # loop through following 
+     for x in following:
+         #check if bot
+         if check_user(x):
+    
+             #append to bots list
+             bots.append(x)
 
     # loop through  list of bots
-    for x in following:
+    for x in bots:
         #create node
         G.add_node(x)
 
